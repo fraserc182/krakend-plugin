@@ -1,0 +1,43 @@
+{
+  "$schema": "https://www.krakend.io/schema/krakend.json",
+  "version": 3,
+  "name": "Realtime",
+  "timeout": "500000ms",
+  "cache_ttl": "300s",
+  "output_encoding": "json",
+  "debug_endpoint": true,
+  "plugin": {
+    "pattern": ".so",
+    "folder": "/etc/krakend/plugins/"
+  },
+  "endpoints": [
+    {
+      "endpoint": "/gtfsrt",
+      "method": "GET",
+      "output_encoding": "negotiate",
+      "backend": [
+        {
+          "url_pattern": "/api/v2/catalog/datasets/trip-updates-gtfs_realtime/files/735985017f62fd33b2fe46e31ce53829",
+          "sd": "static",
+          "method": "GET",
+          "host": [
+            "dadesobertes.fgc.cat"
+          ],
+          "extra_config": {
+            "plugin/http-server": {
+              "name": "gtfsrt"
+            }
+          },
+          "disable_host_sanitize": false
+        }
+      ],
+      "input_query_strings": [
+        "*"
+      ],
+      "input_headers": [
+        "*"
+      ]
+    }
+  ],
+  "port": 8080
+}

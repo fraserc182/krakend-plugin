@@ -1,0 +1,9 @@
+services:
+  krakend_ce:
+    image: devopsfaith/krakend:watch
+    volumes:
+      - ./config/krakend:/etc/krakend
+      - ./plugins:/etc/krakend/plugins
+    ports:
+      - "8080:8080"
+    command: ["run", "-d", "-c", "/etc/krakend/krakend.json"]
