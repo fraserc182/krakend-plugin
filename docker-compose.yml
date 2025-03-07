@@ -1,6 +1,6 @@
 services:
   krakend_ce:
-    image: devopsfaith/krakend:watch
+    image: devopsfaith/krakend:2.9.1
     volumes:
       - ./config/krakend:/etc/krakend
       - ./plugins:/etc/krakend/plugins

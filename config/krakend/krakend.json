@@ -23,11 +23,6 @@
           "host": [
             "dadesobertes.fgc.cat"
           ],
-          "extra_config": {
-            "plugin/http-server": {
-              "name": "gtfsrt"
-            }
-          },
           "disable_host_sanitize": false
         }
       ],
@@ -39,5 +34,10 @@
       ]
     }
   ],
+  "extra_config": {
+    "plugin/http-server": {
+      "name": ["gtfsrt"]
+    }
+  },
   "port": 8080
 }
